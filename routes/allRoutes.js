@@ -4,9 +4,7 @@ const User = require("../models/customerSchema");
 const moment = require('moment');
 const mongoose = require("mongoose");
 
-// ====================
-// MongoDB Connection
-// ====================
+
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -14,11 +12,6 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("DB connected"))
 .catch(err => console.log("DB connection error:", err));
 
-// ====================
-// ROUTES
-// ====================
-
-// GET all users
 router.get("/", async (req, res) => {
     try {
         const allUsers = await User.find({});
@@ -29,22 +22,22 @@ router.get("/", async (req, res) => {
     }
 });
 
-// GET add user page
+
 router.get("/user/add.html", (req, res) => {
     res.render("user/add");
 });
 
-// GET edit user page
+
 router.get("/user/edit.html", (req, res) => {
     res.render("user/edit");
 });
 
-// Redirect /user/user/add.html to add page
+
 router.get("/user/user/add.html", (req, res) => {
     res.redirect("/user/add.html");
 });
 
-// GET single user by ID
+
 router.get("/user/:id", async (req, res) => {
     const { id } = req.params;
 
@@ -62,7 +55,7 @@ router.get("/user/:id", async (req, res) => {
     }
 });
 
-// GET edit user by ID
+
 router.get("/user/edit/:id", async (req, res) => {
     const { id } = req.params;
 
@@ -80,11 +73,6 @@ router.get("/user/edit/:id", async (req, res) => {
     }
 });
 
-// ====================
-// POST ROUTES
-// ====================
-
-// Add new user
 router.post("/user/add.html", async (req, res) => {
     try {
         const newUser = new User(req.body);
@@ -96,7 +84,7 @@ router.post("/user/add.html", async (req, res) => {
     }
 });
 
-// Search users
+
 router.post("/search", async (req, res) => {
     try {
         const user = await User.find({
@@ -112,9 +100,7 @@ router.post("/search", async (req, res) => {
     }
 });
 
-// ====================
-// DELETE ROUTE
-// ====================
+
 router.delete("/delete/:id", async (req, res) => {
     try {
         await User.findByIdAndDelete(req.params.id);
@@ -125,9 +111,7 @@ router.delete("/delete/:id", async (req, res) => {
     }
 });
 
-// ====================
-// PUT ROUTE
-// ====================
+
 router.put("/user/edit/:id", async (req, res) => {
     try {
         await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
