@@ -1,0 +1,42 @@
+<% let i = 1 %>   
+     %>
+    <% for (const user of users) { %>
+        <tr>
+            <th scope="row"><%= i++; %></th>
+            <td>
+                <%= user.firstname + " " + user.lastname %>
+            </td>
+            <td>
+                <%= user.gender %>
+            </td>
+            <td>
+                <%= user.country %>
+            </td>
+            <td>
+                <%= user.age %>
+            </td>
+            <td><%= moment(user.updatedAt).fromNow(); %></td>
+            <td>
+    <div class="d-flex flex-wrap justify-content-center gap-1">
+        
+        <a data-bs-toggle="tooltip" data-bs-title="View details" data-bs-placement="top"
+           class="btn btn-primary btn-sm" href="./user/<%= user._id %>">
+           <i class="bi bi-eye"></i>
+        </a>
+
+        <a data-bs-toggle="tooltip" data-bs-title="Edit user" data-bs-placement="top" 
+           class="btn btn-primary btn-sm" href="./user/edit/<%=user._id%>">
+           <i class="bi bi-pencil"></i>
+        </a>
+
+        <form method="post" action="./delete/<%=user._id%>?_method=DELETE" class="d-inline-block">
+            <button data-bs-toggle="tooltip" data-bs-title="Delete user" data-bs-placement="top" 
+                    class="btn btn-danger btn-sm">
+                <i class="bi bi-trash"></i>
+            </button>
+        </form>
+        
+    </div>
+</td>
+        </tr>
+        <% } %>

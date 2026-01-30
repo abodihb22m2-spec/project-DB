@@ -1,0 +1,17 @@
+#myStyleAbdu {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    color: white !important;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#myStyleAbdu:hover {
+    background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
