@@ -114,13 +114,13 @@
         <span style="right: 10px; top: 2px" class="position-absolute">
           <button class="btn" onclick="toggleSidebar()"><i class="bi bi-x-circle"></i></button>
         </span>
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <i class="bi bi-lightning-charge"></i> <span class="fs-4 sidebar-text">Sidebar</span>
+        <a href="/welcome" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <i class="bi bi-lightning-charge"></i> <span class="fs-4 sidebar-text">Welcome</span>
         </a>
         <hr />
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="/" class="nav-link text-white" aria-current="page">
+            <a href="/home" class="nav-link text-white" aria-current="page">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home" /></svg>
               <span class="sidebar-text"> Home </span>
             </a>
@@ -136,7 +136,9 @@
         <div class="dropdown">
           <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="/img/pesonal.jpg" alt="" width="32" height="32" class="rounded-circle me-2" />
-            <strong class="sidebar-text">Abdulrahman</strong>
+            <strong class="sidebar-text">
+                <%= (locals.user && user.username) ? user.username : 'Guest' %>
+            </strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -154,7 +156,7 @@
         <%- include('../Components/navbar.ejs') %>
         <nav class="px-2 mt-4 d-flex flex-wrap justify-content-between" aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/home">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Abdulrahman</li>
           </ol>
           <p class="me-md-5"> <span class="fw-medium fs-6">Id :</span> <%= Alldata[0]._id %></p>

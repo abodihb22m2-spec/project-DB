@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+<head>
+    <script src="/js/color-modes.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DataLink | Login</title>
+    
+    <link rel="stylesheet" href="/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./img/istockphoto-1783729778-612x612.jpg" type="image/x-icon">
+    
+    <style>
+        body {
+            text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+            box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+            background-color: #1a1d20;
+        }
+
+        .cover-container {
+            max-width: 42em;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 420px;
+            padding: 2.5rem;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            border-color: #0d6efd;
+        }
+
+        .form-floating label {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-masthead .nav-link {
+            color: rgba(255, 255, 255, .5);
+            border-bottom: .25rem solid transparent;
+            margin-left: 1rem;
+            transition: 0.3s;
+        }
+
+        .nav-masthead .nav-link:hover {
+            border-bottom-color: rgba(255, 255, 255, .25);
+            color: #fff;
+        }
+
+        .nav-masthead .active {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .flex-fill-center {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+        }
+    </style>
+</head>
+
+<body class="d-flex h-100 text-center text-bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        
+        <header class="mb-auto">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="fw-bold mb-0"><i class="bi bi-cpu-fill text-primary me-2"></i>DataLink</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a href="/welcome" class="nav-link fw-bold py-1 px-0">Home</a>
+                    <a href="/signup" class="nav-link fw-bold py-1 px-0">Sign up</a>
+                    <a href="/login" class="nav-link fw-bold py-1 px-0 active" aria-current="page">Log in</a>
+                </nav>
+            </div>
+        </header><br>
+        <% if (err) { %>
+    <div class="alert alert-danger py-2 mb-3 d-flex align-items-center" role="alert" style="font-size: 0.9rem; border-radius: 10px; background-color: rgba(220, 53, 69, 0.2); border: 1px solid rgba(220, 53, 69, 0.4); color: #ff858d;">
+        <i class="bi bi-exclamation-circle-fill me-2"></i>
+        <div>
+            <%= err %>
+        </div>
+    </div>
+<% } %>
+        <div class="flex-fill-center my-4">
+            <main class="form-signin shadow-lg">
+                <form action="/login" method="POST">
+                    <i class="bi bi-shield-lock-fill mb-3" style="font-size: 3.5rem; color: #0d6efd; display: block;"></i>
+                    <h1 class="h3 mb-4 fw-bold text-white">Welcome Back</h1>
+
+                    <div class="form-floating mb-2 text-start">
+                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    
+                    <div class="form-floating mb-4 text-start">
+                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                        <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <% if (error) { %>
+                        <div class="alert alert-danger py-2 mb-3" role="alert" style="font-size: 0.9rem; border-radius: 10px;">
+                            <i class="bi bi-exclamation-circle-fill me-2"></i><%= error %>
+                        </div>
+                    <% } %>
+
+                    <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Sign In</button>
+                    
+                    <p class="mt-2 text-white-50">New to DataLink? <a href="/signup" class="text-primary text-decoration-none fw-bold">Create account</a></p>
+                </form>
+            </main>
+        </div>
+
+        <footer class="mt-auto text-white-50">
+            <p>Designed and developed by <span class="text-white">Abdulrahman Mohammed</span> &copy; 2026</p>
+        </footer>
+
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

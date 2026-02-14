@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DataLink | Content</title>
+    <link rel="stylesheet" href="/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./img/istockphoto-1783729778-612x612.jpg" type="image/x-icon">
+
+    <style>
+        body {
+            background-color: #1a1d20;
+            color: white;
+            text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+            box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+        }
+        .cover-container { max-width: 65em; }
+        
+        .nav-masthead .nav-link { 
+            color: rgba(255, 255, 255, .5); 
+            border-bottom: .25rem solid transparent; 
+            margin-left: 1rem; 
+            transition: 0.3s; 
+        }
+        .nav-masthead .nav-link:hover { 
+            border-bottom-color: rgba(255, 255, 255, .25); 
+            color: #fff; 
+        }
+
+        .user-profile-nav {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(5px);
+            padding: 5px 15px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-left: 1rem;
+        }
+
+        .logout-link {
+            color: #ff6b6b !important;
+            border: 1px solid rgba(255, 107, 107, 0.4) !important;
+            border-radius: 10px;
+            padding: 4px 12px !important;
+            margin-left: 10px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .logout-link:hover {
+            background-color: #ff6b6b;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .service-card:hover {
+            border-color: #0d6efd;
+            background-color: rgba(13, 110, 253, 0.05);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .icon-circle {
+            width: 60px; height: 60px;
+            background-color: rgba(13, 110, 253, 0.15);
+            border-radius: 15px; 
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem; color: #0d6efd; font-size: 1.8rem;
+            transition: 0.3s;
+        }
+        .service-card:hover .icon-circle {
+            background-color: #0d6efd;
+            color: white;
+            transform: rotate(-10deg);
+        }
+    </style>
+</head>
+<body class="d-flex h-100 text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        
+        <header class="mb-auto">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="fw-bold mb-0"><i class="bi bi-cpu-fill text-primary me-2"></i>DataLink</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end align-items-center">
+                    <a href="/welcome" class="nav-link fw-bold py-1 px-0">Home</a>
+                    
+                    <% if (user) { %>
+                        <div class="user-profile-nav">
+                            <i class="bi bi-person-circle text-primary me-2"></i>
+                            <span class="small">
+                                Welcome, <strong class="text-white"><%= user.username %></strong>
+                            </span>
+                        </div>
+                        <a href="/logout" class="nav-link fw-bold logout-link">Log out</a>
+                    <% } else { %>
+                        <a href="/signup" class="nav-link fw-bold py-1 px-0">Sign up</a>
+                        <a href="/login" class="nav-link fw-bold py-1 px-0">Log in</a>
+                    <% } %>
+                </nav>
+            </div>
+        </header>
+
+        <main class="px-3 my-auto">
+            <h1 class="display-4 fw-bold mb-3">Our <span class="text-primary">Content</span></h1>
+            <p class="lead text-white-50 mb-5">Explore the powerful features integrated within the DataLink ecosystem.</p>
+            
+            <div class="row g-4 text-start">
+                <div class="col-md-4">
+                    <div class="service-card shadow-sm">
+                        <div class="icon-circle"><i class="bi bi-database-fill"></i></div>
+                        <h4 class="fw-bold">Data Storage</h4>
+                        <p class="text-white-50">Safe and encrypted environment to store all your user records and system configurations.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card shadow-sm">
+                        <div class="icon-circle"><i class="bi bi-shield-lock-fill"></i></div>
+                        <h4 class="fw-bold">High Security</h4>
+                        <p class="text-white-50">Advanced firewall protection and SSL encryption protocols to ensure your data remains private.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card shadow-sm">
+                        <div class="icon-circle"><i class="bi bi-bar-chart-fill"></i></div>
+                        <h4 class="fw-bold">Smart Analytics</h4>
+                        <p class="text-white-50">Get real-time insights and growth tracking for your databases through our analysis engine.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mt-auto text-white-50">
+            <p>Designed and Developed by <span class="text-white">Abdulrahman Mohammed</span> © 2026</p>
+        </footer>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

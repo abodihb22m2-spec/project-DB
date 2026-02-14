@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+<head>
+    <script src="./js/color-modes.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DataLink | Home</title>
+    
+    <link rel="stylesheet" href="./bootstrap-icons-1.10.5/font/bootstrap-icons.min.css" />
+    <link rel="shortcut icon" href="./img/istockphoto-1783729778-612x612.jpg" type="image/x-icon">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #0d6efd;
+            z-index: 10000;
+            transition: width 0.1s linear;
+        }
+
+        html, body {
+            height: auto !important;
+            overflow-x: hidden;
+        }
+        
+        body {
+            background-color: #1a1d20;
+            color: white;
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .cover-container {
+            max-width: 65em;
+        }
+
+        header { z-index: 1000; position: relative; }
+
+        .user-profile-badge {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 15px;
+        }
+
+        .parallax-divider {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            height: 450px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                              url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .divider-content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 3rem;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .feature-section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .feature-box {
+            padding: 40px 30px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-12px);
+            background: rgba(13, 110, 253, 0.08);
+            border-color: rgba(13, 110, 253, 0.5);
+            box-shadow: 0 0 20px rgba(13, 110, 253, 0.2), 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .step-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(13, 110, 253, 0.15);
+            line-height: 0.8;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* تنسيق التنبيهات الذكي */
+        .was-validated .form-control:invalid {
+            border: 2px solid #ff4d4d !important;
+            background-color: rgba(255, 77, 77, 0.05) !important;
+        }
+
+        .was-validated .form-control:valid {
+            border: 2px solid #2ecc71 !important;
+            background-color: rgba(46, 204, 113, 0.05) !important;
+        }
+
+        .invalid-feedback {
+            color: #ff4d4d;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-lg { 
+            border-radius: 50px; 
+            padding: 0.9rem 2.2rem; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        
+        .btn-light:hover { 
+            transform: scale(1.05); 
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .logout-link {
+            color: #ff6b6b !important;
+            border: 1px solid rgba(255, 107, 107, 0.3) !important;
+            border-radius: 12px;
+            padding: 6px 16px !important;
+            transition: 0.3s;
+        }
+        
+        .logout-link:hover {
+            background: rgba(255, 107, 107, 0.1);
+            border-color: #ff6b6b !important;
+        }
+
+        .footer-social-link {
+            transition: 0.3s;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-social-link:hover {
+            color: #0d6efd !important;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scroll-progress"></div>
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        
+        <header class="mb-auto p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="fw-bold mb-0"><i class="bi bi-cpu-fill text-primary me-2"></i>DataLink</h3>
+                <nav class="nav nav-masthead justify-content-center align-items-center">
+                    <% if (user) { %>
+                        <div class="user-profile-badge">
+                            <i class="bi bi-person-circle text-primary me-2"></i>
+                            <span class="small">Welcome, <strong class="text-white"><%= user.username %></strong></span>
+                        </div>
+                        <a href="/logout" class="nav-link fw-bold logout-link ms-3">Log out</a>
+                    <% } else { %>
+                        <a href="/signup" class="nav-link fw-bold py-1 px-3 text-white opacity-75">Sign up</a>
+                        <a href="/login" class="nav-link fw-bold py-1 px-3 text-white">Log in</a>
+                    <% } %>
+                </nav>
+            </div>
+        </header>
+
+        <main class="hero-section">
+            <h1 class="display-2 fw-bold mb-4">
+                <% if (user) { %>
+                    Elevate your Workflow, <span class="text-primary text-capitalize"><%= user.username %></span>
+                <% } else { %>
+                    Welcome to <span class="text-primary">DataLink</span>
+                <% } %>
+            </h1>
+            <p class="lead text-white-50 mb-5" style="max-width: 750px; font-size: 1.25rem;">
+                The ultimate solution for smart data management. Organize, analyze, and secure your database records with our next-gen interface.
+            </p>
+            <div class="d-flex gap-3">
+                <a href="/home" class="btn btn-lg btn-light shadow-lg fw-bold">Get Started</a>
+                <a href="/content" class="btn btn-lg btn-outline-light fw-bold">View Content</a>
+            </div>
+            <div class="mt-5">
+                <a href="#features" class="text-white opacity-25"><i class="bi bi-chevron-double-down fs-3"></i></a>
+            </div>
+        </main>
+    </div>
+
+    <section class="parallax-divider">
+        <div class="divider-content text-center mx-3" style="max-width: 700px;">
+            <h2 class="display-6 fw-bold text-white mb-3">High-Performance Infrastructure</h2>
+            <p class="lead text-white-50 mb-0">Our system is engineered for scale, handling millions of records with millisecond response times.</p>
+        </div>
+    </section>
+
+    <div class="cover-container mx-auto">
+        <section id="features" class="feature-section text-start">
+            <div class="container">
+                <div class="row mb-5 text-center">
+                    <div class="col">
+                        <h2 class="display-5 fw-bold mb-3">How <span class="text-primary">DataLink</span> Works</h2>
+                        <p class="text-white-50">Three simple steps to professional data control</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <span class="step-number">01</span>
+                            <h4 class="fw-bold">Create Account</h4>
+                            <p class="text-white-50 small mb-0">Securely register and set up your private workspace in seconds with encrypted authentication.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <span class="step-number">02</span>
+                            <h4 class="fw-bold">Input Data</h4>
+                            <p class="text-white-50 small mb-0">Add your records through our intuitive dashboard with real-time validation and smart suggestions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <span class="step-number">03</span>
+                            <h4 class="fw-bold">Analyze & Export</h4>
+                            <p class="text-white-50 small mb-0">View deep insights and manage entries with advanced filtering, reporting, and one-click export.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback" class="py-5">
+            <div class="container">
+                <div class="feature-box p-5" style="background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 mb-4 mb-lg-0">
+                            <h2 class="fw-bold mb-3">User <span class="text-primary">Feedback</span></h2>
+                            <p class="text-white-50">Your insights drive our innovation. Tell us what you think.</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <form action="/send-feedback" method="POST" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <input type="text" name="subject" class="form-control form-control-lg border-0" placeholder="Subject" style="background: rgba(255,255,255,0.07); color: white; border-radius: 12px;" required>
+                                    <div class="invalid-feedback">Please provide a subject.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea name="message" class="form-control form-control-lg border-0" rows="3" placeholder="Your Message" style="background: rgba(255,255,255,0.07); color: white; border-radius: 12px;" required></textarea>
+                                    <div class="invalid-feedback">Please enter your message.</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 fw-bold py-3 shadow-sm" style="border-radius: 12px;">
+                                    Send Message <i class="bi bi-send-fill ms-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-5 mt-4 text-center text-white-50">
+            <div class="container">
+                <hr class="mb-5" style="opacity: 0.05;">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-md-start">
+                        <h5 class="fw-bold text-white mb-0"><i class="bi bi-cpu-fill text-primary me-2"></i>DataLink</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="small mb-0">Developed by <span class="text-white fw-bold">Abdulrahman Mohammed</span></p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <a href="#" class="footer-social-link mx-2 fs-5"><i class="bi bi-github"></i></a>
+                        <a href="#" class="footer-social-link mx-2 fs-5"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script>
+        // نظام شريط التقدم والتحقق
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+
+        (() => {
+          'use strict'
+          const forms = document.querySelectorAll('.needs-validation')
+          Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+              form.classList.add('was-validated')
+            }, false)
+          })
+        })()
+    </script>
+</body>
+</html>

@@ -223,16 +223,16 @@
       </span>
 
       <a
-        href="/"
+        href="/welcome"
         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
       >
         <i class="bi bi-lightning-charge"></i>
-        <span class="fs-4 sidebar-text">Sidebar</span>
+        <span class="fs-4 sidebar-text">Welcome</span>
       </a>
       <hr />
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="/" class="nav-link text-white" aria-current="page">
+          <a href="/home" class="nav-link text-white" aria-current="page">
             <svg class="bi pe-none me-2" width="16" height="16">
               <use xlink:href="#home" />
             </svg>
@@ -264,7 +264,9 @@
             height="32"
             class="rounded-circle me-2"
           />
-          <strong class="sidebar-text">Abdulrahman</strong>
+          <strong class="sidebar-text">
+                <%= (locals.user && user.username) ? user.username : 'Guest' %>
+            </strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
           <li><a class="dropdown-item" href="#">New project...</a></li>
