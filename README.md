@@ -25,4 +25,4 @@ A quick look at the core organization:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/project-DB.git](https://github.com/yourusername/project-DB.git)
+   git clone [https://github.com/abodihb22m2-spec/project-DB.git](https://github.com/abodihb22m2-spec/project-DB.git)
